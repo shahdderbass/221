@@ -30,7 +30,7 @@ int main(){
  		}
 	}
 	
-	sleep(2);
+	sleep(1);
 	printf("[Parent] PID=<%d>, PPID=<%d>\n", getpid(), getppid());
 
 	return 0;
