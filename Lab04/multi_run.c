@@ -48,9 +48,9 @@ int main() {
     for (int i = 0; i < N; i++) {
         int status;
         pid_t child_pid = wait(&status);
-       /* if (child_pid > 0)
+       if (child_pid > 0)
             printf("Child %d completed.\n", child_pid);
-    	*/
+    
     }
 
     printf("All commands executed successfully.\n");
