@@ -1,0 +1,2 @@
+Parent PID 1959 counted 10 digits.
+Child PID 1960 counted 19 alphabets.
