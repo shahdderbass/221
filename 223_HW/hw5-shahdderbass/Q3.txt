@@ -1,0 +1,17 @@
+Describe a situation where deadlock could potentially occur in this scenario. Explain the sequence of steps taken by Worker 1 and Worker 2, involving the acquisition and release of semaphores, that could lead to deadlock.
+
+A possible situation where deadlock can happen is if the two workers take the two semaphores in a different order. There are two semaphores: "printer_access" which controls access to the printer, and "printer_available" which indicates whether the printer is free or not.
+
+A possible deadlock sequence is:
+
+Worker 1 starts and successfully waits on printer_access, so it now holds printer_access and is preparing to print.
+
+Before Worker 1 takes printer_available, the CPU switches to Worker 2.
+
+Worker 2 starts and successfully waits on printer_available, so it now holds printer_available.
+
+Worker 2 now tries to wait on printer_access, but this semaphore is already held by Worker 1, so Worker 2 is blocked and keeps waiting.
+
+The CPU switches back to Worker 1, which now tries to wait on printer_available, but that semaphore is already held by Worker 2, so Worker 1 also becomes blocked.
+
+Now Worker 1 is holding printer_access and waiting for printer_available, and Worker 2 is holding printer_available and waiting for printer_access. Neither of them can continue or release what they have, so both remain stuck forever.

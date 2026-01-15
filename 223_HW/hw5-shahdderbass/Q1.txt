@@ -1,0 +1,7 @@
+[Q.1] Answer the following questions related to the race conditions:
+
+a. What is the race condition?
+	A race condition occurs when multiple threads or processes try to use or update shared data at the same time, and the program’s outcome depends on the unpredictable order in which they execute, thus the final result can become inconsistent or incorrect.	
+
+b. Explain why race conditions can still occur even if every data item is protected by a mutual-exclusion lock and the data item is always locked when it is read or written.
+	Because locking each variable only makes individual accesses safe, not the whole operation. If an operation involves multiple steps or multiple shared variables, other threads can run in between those steps, causing the race condition. 
