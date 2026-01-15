@@ -44,9 +44,16 @@ int main(int argc, char *argv[]){
 
 	char *buffer = malloc(MAXLINE);	
 
-	rio_readlineb(&rio, buffer, MAXLINE);		// reads line from server
-	printf("Message received from server: %s", buffer);			// prints server's message to screen
+	while(1){
+		ssize_t n = rio_readlineb(&rio, buffer, MAXLINE);		// reads line from server
+		
+		if(n <= 0){
+			printf("Server ended connection.\n");
+			break;
+		}
 
+		printf("Message received from server: %s", buffer);			// prints server's message to screen
+	}
 	free(buffer);
 	if(close(sock_fd) < 0){
 		perror("Socket failed to close.");
